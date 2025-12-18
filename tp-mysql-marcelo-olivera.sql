@@ -25,7 +25,6 @@ CREATE TABLE veterinarios(
     matricula VARCHAR(20) NOT NULL UNIQUE,
     especialidad VARCHAR(50) NOT NULL
 );
-
 -- -Ejercicio 5
 CREATE TABLE historial_clinico(
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,13 +37,12 @@ CREATE TABLE historial_clinico(
 );
 -- -Ejercicio 6
 INSERT INTO duenos (
-    nombre,
-    apellido,
-    telefono,
-    direccion
-)
-VALUES
-    (
+        nombre,
+        apellido,
+        telefono,
+        direccion
+    )
+VALUES (
         'Juan',
         'Perez',
         '1144337766',
@@ -62,15 +60,13 @@ VALUES
         '1144337711',
         'Calle falsa 126'
     );
-
 INSERT INTO mascotas (
-    nombre,
-    especie,
-    fecha_nacimiento,
-    id_dueno
-)
-VALUES
-    (
+        nombre,
+        especie,
+        fecha_nacimiento,
+        id_dueno
+    )
+VALUES (
         'Jhon',
         'Pitbull',
         '2024-01-15',
@@ -88,15 +84,13 @@ VALUES
         '2024-01-15',
         3
     );
-
 INSERT INTO veterinarios (
-    nombre,
-    apellido,
-    matricula,
-    especialidad
-)
-VALUES
-    (
+        nombre,
+        apellido,
+        matricula,
+        especialidad
+    )
+VALUES (
         'Ricardo',
         'Ford',
         '3120',
@@ -108,15 +102,13 @@ VALUES
         '6894',
         'Cirugía'
     );
-
 INSERT INTO historial_clinico(
-    id_mascota,
-    id_veterinario,
-    fecha_registro,
-    descripcion
-)
-VALUES
-    (
+        id_mascota,
+        id_veterinario,
+        fecha_registro,
+        descripcion
+    )
+VALUES (
         1,
         1,
         '2024-01-15 10:30:00',
@@ -135,42 +127,32 @@ VALUES
         'Necesita operacion'
     );
 -- -Ejercicio 7
-
 UPDATE duenos
 SET direccion = 'Calle Verdadera 123'
 WHERE id = 1;
-
 UPDATE veterinarios
-SET especialidad='Cirugia'
-WHERE id=1;
-
+SET especialidad = 'Cirugia'
+WHERE id = 1;
 UPDATE historial_clinico
 SET descripcion = 'Este perro esta muy bien'
 WHERE id = 1;
-
 -- -Ejercicio 8
-
 DELETE FROM mascotas
 WHERE id = 2;
-
 -- -Ejercicio 9
-SELECT
-    m.nombre AS nombre_mascota,
+SELECT m.nombre AS nombre_mascota,
     m.especie AS especie_mascota,
     CONCAT(d.nombre, ' ', d.apellido) AS nombre_completo_dueno
 FROM mascotas m
-INNER JOIN duenos d ON d.id = m.id_dueno;
+    INNER JOIN duenos d ON d.id = m.id_dueno;
 -- -Ejercicio 10
-
-
-SELECT
-    m.nombre AS nombre_mascota,
+SELECT m.nombre AS nombre_mascota,
     m.especie AS especie_mascota,
     CONCAT(d.nombre, ' ', d.apellido) AS nombre_completo_dueno,
     CONCAT(v.nombre, ' ', v.apellido) AS nombre_completo_veterinario,
     h.fecha_registro,
     h.descripcion
 FROM historial_clinico h
-INNER JOIN veterinarios v ON v.id = h.id_veterinario
-INNER JOIN mascotas m ON m.id = h.id_mascota
-INNER JOIN duenos d ON d.id = m.id_dueno; 
+    INNER JOIN veterinarios v ON v.id = h.id_veterinario
+    INNER JOIN mascotas m ON m.id = h.id_mascota
+    INNER JOIN duenos d ON d.id = m.id_dueno;
