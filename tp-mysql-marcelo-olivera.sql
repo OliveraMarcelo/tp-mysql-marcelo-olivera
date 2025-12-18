@@ -26,7 +26,7 @@ CREATE TABLE veterinarios(
     especialidad VARCHAR(50) NOT NULL
 );
 
--- Ejercicio 5
+-- -Ejercicio 5
 CREATE TABLE historial_clinico(
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_mascota INT,
@@ -36,7 +36,7 @@ CREATE TABLE historial_clinico(
     FOREIGN KEY(id_mascota) REFERENCES mascotas(id) ON DELETE CASCADE,
     FOREIGN KEY(id_veterinario) REFERENCES veterinarios(id)
 );
---Ejercicio 6
+-- -Ejercicio 6
 INSERT INTO duenos (
     nombre,
     apellido,
@@ -134,7 +134,7 @@ VALUES
         '2024-01-15 10:30:00',
         'Necesita operacion'
     );
---Ejercicio 7
+-- -Ejercicio 7
 
 UPDATE duenos
 SET direccion = 'Calle Verdadera 123'
@@ -148,19 +148,19 @@ UPDATE historial_clinico
 SET descripcion = 'Este perro esta muy bien'
 WHERE id = 1;
 
---Ejercicio 8
+-- -Ejercicio 8
 
 DELETE FROM mascotas
 WHERE id = 2;
 
---Ejercicio 9
+-- -Ejercicio 9
 SELECT
     m.nombre AS nombre_mascota,
     m.especie AS especie_mascota,
     CONCAT(d.nombre, ' ', d.apellido) AS nombre_completo_dueno
 FROM mascotas m
 INNER JOIN duenos d ON d.id = m.id_dueno;
---Ejercicio 10
+-- -Ejercicio 10
 
 
 SELECT
